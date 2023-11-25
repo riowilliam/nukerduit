@@ -17,13 +17,24 @@ services:
         container_name: db
         image: postgres:16
         ports:
-            - "4321:4321"
+            - "5432:5432"
         environment:
-            POSTGRES_DB: nukerduit
+            POSTGRES_DB: postgres
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: postgres
         volumes:
             - pgdata:/var/lib/postgresql/data
+
+    web:
+        container_name: pgAdmin
+        image: dpage/pgadmin4
+        ports:
+            - "5050:80"
+        depends_on:
+            - db
+        environment:
+            PGADMIN_DEFAULT_EMAIL: test@example.com
+            PGADMIN_DEFAULT_PASSWORD: password
 
 volumes:
     pgdata: {}
