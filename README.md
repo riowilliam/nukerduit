@@ -17,11 +17,7 @@ password: postgres
 ## Sample account
 
 ```
-pgAdmin
-email: test@example.com
-password: password
-
-app
+pgAdmin / app
 email: test@example.com
 password: password
 ```
