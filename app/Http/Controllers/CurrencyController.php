@@ -24,7 +24,7 @@ class CurrencyController extends BaseController
             'amount' => $request->amount,
             'from' => $request->from,
             'to' => $request->to,
-            ])->get("http://api.frankfurter.app/latest");
+            ])->get(config('currency.base_url') . "/latest");
 
         $content = $data->getBody()->getContents();
 
