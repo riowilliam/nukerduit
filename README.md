@@ -46,4 +46,7 @@ GET    /api/currency/exchange
 
 GET    /api/transaction/currency
 @Params: code, time
+
+POST    /api/transaction/currency
+@body: currency, buy, sell, status
 ```

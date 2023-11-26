@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('currency');
             $table->integer('buy');
             $table->integer('sell');
+            $table->string('status');
             $table->timestamps();
         });
     }

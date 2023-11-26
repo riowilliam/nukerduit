@@ -20,6 +20,7 @@ class TransactionFactory extends Factory
             'currency' => fake()->randomElement(['JPY','USD','SGD','EUR']),
             'buy' => fake()->randomNumber(5, false),
             'sell' => fake()->randomNumber(5, false),
+            'status' => fake()->randomElement(['buy','sell']),
         ];
     }
 }

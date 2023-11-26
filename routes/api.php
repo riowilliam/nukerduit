@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/currency/exchange', [CurrencyController::class, 'currencyExchange']);
     Route::get('/currency/code', [CurrencyController::class, 'currencies']);
     Route::get('/transaction/currency', [TransactionController::class, 'find']);
+    Route::post('/transaction/currency', [TransactionController::class, 'create']);
 });
 
 
