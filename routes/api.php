@@ -20,14 +20,14 @@ use App\Http\Controllers\CurrencyController;
 
 // Public routes
 Route::get('/healthcheck', function () { return null; });
-Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/auth/register', [AuthController::class, 'register']);
+Route::post('/auth/login', [AuthController::class, 'login']);
 
 
 // Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::post('/logout', [AuthController::class, 'logout']);
-    Route::get('/exchange-currency', [CurrencyController::class, 'exchangeCurrency']);
+    Route::post('/auth/logout', [AuthController::class, 'logout']);
+    Route::get('/currency/exchange', [CurrencyController::class, 'currencyExchange']);
 });
 
 

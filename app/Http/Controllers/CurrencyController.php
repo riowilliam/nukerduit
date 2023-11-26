@@ -9,7 +9,7 @@ use App\Http\Controllers\BaseController as BaseController;
 
 class CurrencyController extends BaseController
 {
-    public function exchangeCurrency(Request $request){
+    public function currencyExchange(Request $request){
         $fields = Validator::make($request->all(), [
             'amount' => 'required|integer',
             'from' => 'required|string',

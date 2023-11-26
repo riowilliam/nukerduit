@@ -30,17 +30,17 @@ password: password
 ```
 # Public
 
-POST   /api/login
+POST   /api/auth/login
 @body: email, password
 
-POST   /api/register
+POST   /api/auth/register
 @body: name, email, password, password_confirmation
 
 
 # Protected
 
-POST    /api/logout
+POST    /api/auth/logout
 
-GET    /api/exchange-currency
+GET    /api/currency/exchange
 @Params: amount, from, to
 ```
