@@ -32,4 +32,14 @@ class CurrencyController extends BaseController
 
         return $this->sendResponse($response, 'Exchange amount successfully.');
     }
+
+    public function currencies(){
+        $data = Http::get(config('currency.base_url') . "/currencies");
+
+        $content = $data->getBody()->getContents();
+
+        $response = json_decode($content, true);
+
+        return $this->sendResponse($response, 'Gets a list of available currency symbols successfully.');
+    }
 }
