@@ -20,7 +20,7 @@ class CurrencyController extends BaseController
 
         $response = json_decode($content, true);
 
-        return $this->sendResponse($response, 'Exchange amount successfully.');
+        return $this->sendResponse($response, 'Find currency amount successfully.');
     }
 
     public function currencies(){
