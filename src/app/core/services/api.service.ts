@@ -11,4 +11,8 @@ export class ApiService {
   postLogin(payload: any): Observable<any> {
     return this.httpSvc.postData('auth/login', payload);
   }
+
+  getCurrencyExchange(queryParam?: object): Observable<any> {
+    return this.httpSvc.getData('currency/exchange', { ...queryParam });
+  }
 }

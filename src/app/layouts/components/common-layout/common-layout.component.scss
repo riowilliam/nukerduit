@@ -13,12 +13,13 @@ section {
   display: flex;
   position: relative;
   main {
-    background: #f4f6fa;
     display: flex;
     flex-direction: column;
     padding: 2rem;
     height: 100%;
     width: 100%;
+    margin: 2rem;
+    border: 1px solid #c3ced9;
 
     .container-notification {
       z-index: 10;

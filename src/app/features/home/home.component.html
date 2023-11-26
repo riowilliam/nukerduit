@@ -1,0 +1,26 @@
+<ng-container *ngIf="currencies | async as currency; else loading">
+  <ng-template [ngIf]="currency.length > 0" [ngIfElse]="noData">
+    <div class="card-deck">
+      <div class="card" *ngFor="let data of currency">
+        <div class="card-body">
+          <h5 class="card-title">{{ data.base }}</h5>
+          <p class="card-text">
+            {{ data.rates.IDR | number }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #noData>
+    <div>Currency Not Found</div>
+  </ng-template>
+</ng-container>
+<ng-template #loading>
+  <div class="card-deck">
+    <div
+      *ngFor="let i of [].constructor(4)"
+      class="card shimmer"
+      style="height: 120px"
+    ></div>
+  </div>
+</ng-template>
