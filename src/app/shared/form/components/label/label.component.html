@@ -1,0 +1,4 @@
+<label *ngIf="label" [id]="id + '_label'" [for]="id">
+  <span *ngIf="label === ' '"></span>
+  <span *ngIf="label !== ' '">{{ label }}</span>
+</label>

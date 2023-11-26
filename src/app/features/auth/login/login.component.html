@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="card">
+    <form (ngSubmit)="loginFg.valid && onSubmit()">
+      <app-input [formGroup]="loginFg" [formData]="emailFd"></app-input>
+      <app-input [formGroup]="loginFg" [formData]="passwordFd"></app-input>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block" [disabled]="loginFg.invalid">
+          Login
+        </button>
+      </div>
+    </form>
+
+    <div class="alert-danger radius p-2" *ngIf="isLoginFailed">
+      <div>
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+.form-control {
+  &:focus {
+    box-shadow: none;
+  }
+}
+.ng-invalid {
+  border-color: #dc3545;
+}

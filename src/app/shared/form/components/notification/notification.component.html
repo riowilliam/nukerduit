@@ -1,0 +1,50 @@
+<small
+  *ngIf="
+    (fc?.dirty || fc?.touched) &&
+    !fc?.hasError('required') &&
+    fc?.hasError('minlength')
+  "
+  class="text-danger float-right"
+  [id]="id + '_notification'"
+  >Minimal {{ fc?.getError("minlength").requiredLength }} karakter</small
+>
+<small
+  *ngIf="
+    (fc?.dirty || fc?.touched) &&
+    !fc?.hasError('required') &&
+    fc?.hasError('maxlength')
+  "
+  class="text-danger float-right"
+  [id]="id + '_notification'"
+  >Maksimal {{ fc?.getError("maxlength").requiredLength }} karakter</small
+>
+<small
+  *ngIf="
+    (fc?.dirty || fc?.touched) &&
+    !fc?.hasError('required') &&
+    fc?.hasError('min')
+  "
+  class="text-danger float-right"
+  [id]="id + '_notification'"
+  >Minimal {{ fc?.getError("min").min }}</small
+>
+<small
+  *ngIf="
+    (fc?.dirty || fc?.touched) &&
+    !fc?.hasError('required') &&
+    fc?.hasError('max')
+  "
+  class="text-danger float-right"
+  [id]="id + '_notification'"
+  >Maksimal {{ fc?.getError("max").max }}</small
+>
+<small
+  *ngIf="
+    (fc?.dirty || fc?.touched) &&
+    !fc?.hasError('required') &&
+    fc?.hasError('custom')
+  "
+  class="text-danger float-right"
+  [id]="id + '_notification'"
+  >{{ fc?.getError("custom") }}</small
+>

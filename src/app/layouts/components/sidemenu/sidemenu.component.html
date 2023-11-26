@@ -1,0 +1,10 @@
+<aside
+  class="py-4 px-2 bg-white overflow-auto h-100 ease-in-out transition-all w-260"
+>
+  <nav class="flex flex-col justify-between">
+    <app-sidemenu-item
+      *ngFor="let item of sidemenuSvc.items | async"
+      [property]="item"
+    ></app-sidemenu-item>
+  </nav>
+</aside>

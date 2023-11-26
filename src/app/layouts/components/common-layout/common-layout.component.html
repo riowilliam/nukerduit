@@ -1,0 +1,14 @@
+<section>
+  <app-sidemenu></app-sidemenu>
+  <main class="overflow-hidden posision-absolute">
+    <div
+      class="position-absolute d-flex flex-column align-items-center container-notification"
+    >
+      <app-notification
+        *ngFor="let notification of notifications | async"
+        [notification]="notification"
+      ></app-notification>
+    </div>
+    <router-outlet></router-outlet>
+  </main>
+</section>
