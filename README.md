@@ -43,4 +43,7 @@ POST    /api/auth/logout
 
 GET    /api/currency/exchange
 @Params: amount, from, to
+
+GET    /api/transaction/currency
+@Params: code, time
 ```
