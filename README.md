@@ -2,10 +2,13 @@
 
 1. `git clone git@github.com:riowilliam/back-nukerduit.git`
 2. `docker compose up -d`
-3. You can access postgreSql via pgAdmin `http://localhost:5050/` to register server
+3. You can access PostgreSQL via pgAdmin `http://localhost:5050/` to register server
 
 ```
+Tab General
 name: server1
+
+Tab Connection
 host: db
 user: postgres
 password: postgres
@@ -37,4 +40,7 @@ POST   /api/register
 # Protected
 
 POST    /api/logout
+
+GET    /api/exchange-currency
+@Params: amount, from, to
 ```

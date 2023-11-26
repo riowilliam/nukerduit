@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\BaseController as BaseController;
 use App\Models\LogAuth;
+use App\Models\User;
 
 class AuthController extends BaseController
 {
@@ -19,11 +19,7 @@ class AuthController extends BaseController
         ]);
 
         if($fields->fails()){
-            return $this->sendError('Validation Error.', $fields->errors());
-        }
-
-        if (User::where('email', $request->email)->exists()) {
-            return $this->sendError('User already register.', ['error'=>'Conflict']);
+            return $this->sendError('Validation Error.', $fields->errors(), 400);
         }
 
         $user = User::create([
@@ -49,7 +45,7 @@ class AuthController extends BaseController
         ]);
 
         if($fields->fails()){
-            return $this->sendError('Validation Error.', $fields->errors());
+            return $this->sendError('Validation Error.', $fields->errors(), 400);
         }
 
         $user = User::where('email', $request['email'])->first();
