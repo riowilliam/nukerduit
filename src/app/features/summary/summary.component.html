@@ -1,0 +1,6 @@
+<h1>Summary</h1>
+<app-select-with-hardcode-options
+  [formData]="formDropdownPeriodFd"
+  (fcObject)="setFormDropdownPeriodFc($event)"
+></app-select-with-hardcode-options>
+<app-table [config]="tableConfig" [dataSource]="tableData"></app-table>

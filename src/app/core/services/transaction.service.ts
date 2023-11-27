@@ -31,4 +31,24 @@ export class TransactionService {
       );
     });
   }
+
+  getTransaction(request: any): Observable<any> {
+    return new Observable((obs) => {
+      this.apiSvc.getTransaction(request).subscribe(
+        (res) => {
+          if (res.data) {
+            obs.next(res.data);
+            this.notificationSvc.push('success', res.message);
+          } else {
+            obs.next(false);
+            this.notificationSvc.push('error', res.message);
+          }
+        },
+        (err) => {
+          obs.next(false);
+          this.notificationSvc.push('error', err.error.message);
+        }
+      );
+    });
+  }
 }

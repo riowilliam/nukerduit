@@ -1,0 +1,76 @@
+<div class="table-wrapper">
+  <table class="table">
+    <thead>
+      <tr>
+        <th *ngFor="let header of config.header">
+          <ng-template [ngIf]="header.sort">
+            <div
+              class="sort"
+              [class.sorted]="header.direction && header.direction != 'none'"
+              (click)="toggleDirection(header.key, header.direction!)"
+            >
+              {{ header.label }}
+              <i
+                [class.fa-sort]="header.direction == 'none'"
+                [class.fa-sort-down]="header.direction == 'desc'"
+                [class.fa-sort-up]="header.direction == 'asc'"
+                class="fa"
+              ></i>
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="!header.sort">
+            <div>
+              {{ header.label }}
+            </div>
+          </ng-template>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-template [ngIf]="dataSource.length > 0">
+        <tr *ngFor="let body of dataSource">
+          <td *ngFor="let header of config.header">
+            <div *ngIf="!header.type || header.type == 'text'">
+              {{ body[header.key] }}
+            </div>
+            <div *ngIf="header.type == 'currency-usd'">
+              {{
+                isNumber(body[header.key])
+                  ? (body[header.key] | currency: "USD":"symbol")
+                  : body[header.key]
+              }}
+            </div>
+            <div *ngIf="header.type == 'image'">
+              <a (click)="onClickPopUpModal(content)">
+                {{ body[header.key] }}
+              </a>
+              <ng-template #content let-modal>
+                <div class="modal-body">
+                  <img
+                    class="w-100"
+                    [src]="body[header.key]"
+                    [alt]="body[header.key]"
+                  />
+                </div>
+              </ng-template>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template [ngIf]="dataSource.length === 0">
+        <div *ngIf="config.emptyMessage; else loading">
+          <tr class="is-empty">
+            <td [attr.colspan]="config.header.length" class="text-center">
+              <strong>{{ config.emptyMessage }}</strong>
+            </td>
+          </tr>
+        </div>
+        <ng-template #loading>
+          <tr *ngFor="let i of [].constructor(10)">
+            <td [attr.colspan]="config.header.length" class="shimmer"></td>
+          </tr>
+        </ng-template>
+      </ng-template>
+    </tbody>
+  </table>
+</div>

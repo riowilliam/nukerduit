@@ -55,6 +55,14 @@ const routes: Routes = [
             (m) => m.SellTransactionModule
           ),
       },
+      {
+        path: 'summary',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./features/summary/summary.module').then(
+            (m) => m.SummaryModule
+          ),
+      },
     ],
   },
   {

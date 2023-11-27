@@ -23,4 +23,8 @@ export class ApiService {
   postTransaction(payload: any): Observable<any> {
     return this.httpSvc.postData('transaction/currency', payload);
   }
+
+  getTransaction(queryParam?: object): Observable<any> {
+    return this.httpSvc.getData('transaction/currency', { ...queryParam });
+  }
 }

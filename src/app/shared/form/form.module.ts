@@ -8,6 +8,7 @@ import { NotificationComponent } from './components/notification/notification.co
 import { FormService } from './form.service';
 import { SelectComponent } from './components/select/select.component';
 import { InputCurrencyComponent } from './components/input-currency/input-currency.component';
+import { SelectWithHardcodeOptionsComponent } from './components/select-with-hardcode-options/select-with-hardcode-options.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
@@ -17,6 +18,7 @@ import { InputCurrencyComponent } from './components/input-currency/input-curren
     NotificationComponent,
     SelectComponent,
     InputCurrencyComponent,
+    SelectWithHardcodeOptionsComponent,
   ],
   declarations: [
     LabelComponent,
@@ -24,6 +26,7 @@ import { InputCurrencyComponent } from './components/input-currency/input-curren
     NotificationComponent,
     SelectComponent,
     InputCurrencyComponent,
+    SelectWithHardcodeOptionsComponent,
   ],
   providers: [FormService, RouterModule],
 })
