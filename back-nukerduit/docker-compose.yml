@@ -1,24 +1,6 @@
 version: "1.0"
 
 services:
-<<<<<<< HEAD
-  web:
-    container_name: web
-    image: "front-nukerduit:1.0.0"
-    ports:
-      - "4200:80"
-    build:
-      context: .
-      args:
-        - DEPLOY=dev
-        - NGINX=nginx.conf
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "14"
-        labels: "Local-status"
-=======
     app:
         container_name: app
         image: laravel:1.0.0
@@ -56,4 +38,3 @@ services:
 
 volumes:
     pgdata: {}
->>>>>>> r1remote/main
