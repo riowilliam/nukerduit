@@ -1,3 +1,4 @@
+<h1>Home</h1>
 <ng-container *ngIf="currencies | async as currency; else loading">
   <ng-template [ngIf]="currency.length > 0" [ngIfElse]="noData">
     <div class="card-deck">

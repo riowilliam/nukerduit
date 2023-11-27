@@ -8,11 +8,11 @@ import {
 } from 'src/app/core/services';
 
 @Component({
-  selector: 'app-buy-transaction',
-  templateUrl: './buy-transaction.component.html',
-  styleUrls: ['./buy-transaction.component.scss'],
+  selector: 'app-sell-transaction',
+  templateUrl: './sell-transaction.component.html',
+  styleUrls: ['./sell-transaction.component.scss'],
 })
-export class BuyTransactionComponent implements OnInit {
+export class SellTransactionComponent implements OnInit {
   formDropdownCurrencyFc: FormControl;
   formDropdownCurrencyFd = {
     id: 'Currency',
@@ -62,7 +62,7 @@ export class BuyTransactionComponent implements OnInit {
       .subscribe((v) => {
         if (v && this.amount) {
           this.homeSvc
-            .getBigCurrency({ amount: this.amount, from: v, to: 'IDR' })
+            .getBigCurrency({ amount: this.amount, from: v })
             .subscribe(({ rates: { IDR } }) => {
               this.formInputTotalFc.setValue(IDR);
             });
@@ -80,7 +80,7 @@ export class BuyTransactionComponent implements OnInit {
       .subscribe((v) => {
         if (v && this.currencyCode) {
           this.homeSvc
-            .getBigCurrency({ amount: v, from: this.currencyCode, to: 'IDR' })
+            .getBigCurrency({ amount: v, from: this.currencyCode })
             .subscribe(({ rates: { IDR } }) => {
               this.formInputTotalFc.setValue(IDR);
             });
@@ -97,7 +97,7 @@ export class BuyTransactionComponent implements OnInit {
       currency: this.formDropdownCurrencyFc.value,
       buy: this.formInputAmountFc.value,
       sell: this.formInputTotalFc.value,
-      status: 'buy',
+      status: 'sell',
     };
     this.transactionSvc.postTransaction(payload).subscribe((res) => {
       if (res) {
