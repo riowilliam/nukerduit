@@ -15,31 +15,15 @@ export class SidemenuService {
   }
 
   private _generateSidemenuItems(data: SidemenuItem[]) {
-    return data.map(({ key, children }) => {
+    return data.map(({ key }) => {
       return {
         label: key,
-        imgSrc: {
-          default: `assets/images/layouts/${this._prettifyUrl(
-            key
-          )}-default.svg`,
-          active: `assets/images/layouts/${this._prettifyUrl(key)}-active.svg`,
-        },
         url: `/${this._prettifyUrl(key)}`,
-        ...(children && { children: this._mapChild(children, key) }),
       };
     });
   }
 
   private _prettifyUrl(text: string): string {
     return text.toLowerCase().split(' ').join('-').replace('&', 'and');
-  }
-
-  private _mapChild(child: string[], parent: string) {
-    return child.map((i) => {
-      return {
-        label: i,
-        url: `/${this._prettifyUrl(parent)}/${this._prettifyUrl(i)}`,
-      };
-    });
   }
 }

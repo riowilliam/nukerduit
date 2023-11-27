@@ -1,0 +1,28 @@
+<app-select
+  [formData]="formDropdownCurrencyFd"
+  (fcObject)="setFormDropdownCurrencyFc($event)"
+></app-select>
+<app-input-currency
+  [formData]="formInputAmountFd"
+  (fcObject)="setFormInputAmountFc($event)"
+></app-input-currency>
+<fieldset disabled>
+  <app-input-currency
+    [formData]="formInputTotalFd"
+    (fcObject)="setFormInputTotalFc($event)"
+  ></app-input-currency>
+</fieldset>
+<div class="form-group float-right">
+  <button class="btn btn-light mr-3" (click)="onReset()">Reset</button>
+  <button
+    class="btn btn-primary"
+    [disabled]="
+      !formDropdownCurrencyFc.value ||
+      !formInputAmountFc.value ||
+      !formInputTotalFc.value
+    "
+    (click)="onSubmit()"
+  >
+    Submit
+  </button>
+</div>

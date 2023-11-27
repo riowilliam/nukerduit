@@ -6,11 +6,25 @@ import { InputComponent } from './components/input/input.component';
 import { LabelComponent } from './components/label/label.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { FormService } from './form.service';
+import { SelectComponent } from './components/select/select.component';
+import { InputCurrencyComponent } from './components/input-currency/input-currency.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
-  exports: [LabelComponent, InputComponent, NotificationComponent],
-  declarations: [LabelComponent, InputComponent, NotificationComponent],
+  exports: [
+    LabelComponent,
+    InputComponent,
+    NotificationComponent,
+    SelectComponent,
+    InputCurrencyComponent,
+  ],
+  declarations: [
+    LabelComponent,
+    InputComponent,
+    NotificationComponent,
+    SelectComponent,
+    InputCurrencyComponent,
+  ],
   providers: [FormService, RouterModule],
 })
 export class FormModule {}

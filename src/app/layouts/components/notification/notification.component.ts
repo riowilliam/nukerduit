@@ -9,7 +9,13 @@ import { Notification } from 'src/app/models';
 export class NotificationComponent implements OnInit {
   @Input() notification!: Notification;
   get bg(): string {
-    return this.notification.variant === 'error' ? '#FF2D55' : '#34C759';
+    if (this.notification.variant === 'error') {
+      return '#FF2D55';
+    } else if (this.notification.variant === 'success') {
+      return '#34C759';
+    } else {
+      return '#17A2B8';
+    }
   }
   constructor() {}
 

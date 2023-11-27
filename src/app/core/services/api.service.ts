@@ -15,4 +15,12 @@ export class ApiService {
   getCurrencyExchange(queryParam?: object): Observable<any> {
     return this.httpSvc.getData('currency/exchange', { ...queryParam });
   }
+
+  getCurrencyCode(): Observable<any> {
+    return this.httpSvc.getData('currency/code');
+  }
+
+  postTransaction(payload: any): Observable<any> {
+    return this.httpSvc.postData('transaction/currency', payload);
+  }
 }

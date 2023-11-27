@@ -39,6 +39,14 @@ const routes: Routes = [
         loadChildren: () =>
           import('./features/home/home.module').then((m) => m.HomeModule),
       },
+      {
+        path: 'buy-transaction',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./features/buy-transaction/buy-transaction.module').then(
+            (m) => m.BuyTransactionModule
+          ),
+      },
     ],
   },
   {

@@ -1,0 +1,23 @@
+<div class="form-group">
+  <app-label
+    [label]="formData.label"
+    [id]="formData.alias"
+    [fc]="fc"
+  ></app-label>
+  <select
+    [class]="formData.class"
+    [formControl]="fc"
+    [id]="formData.alias"
+    [class.ng-invalid]="!fc.valid && (fc?.dirty || fc?.touched)"
+  >
+    <option value="" disabled selected>
+      {{ formData.placeholder || "Pilih" }}
+    </option>
+    <option [value]="opt" *ngFor="let opt of opts" style="color: black">
+      {{ opt }}
+    </option>
+  </select>
+  <ng-container *ngIf="fc.enabled">
+    <app-notification [fc]="fc" [id]="formData.alias"></app-notification>
+  </ng-container>
+</div>
