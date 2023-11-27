@@ -4,6 +4,8 @@
 2. `docker compose up -d`
 3. You can access PostgreSQL via pgAdmin `http://localhost:5050/` to register server
 
+<img width="766" alt="image" src="https://github.com/riowilliam/nukerduit/assets/57007982/76bd8d13-0932-4f92-b2ae-3b12f642b9d1">
+
 ```
 Tab General
 name: server1
